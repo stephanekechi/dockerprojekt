@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t greatness/dockerprojekt -f Dockerfile.dev .
+
+script: 
+  - docker run greatness/dockerprojekt npm run test -- --coverage
