@@ -6,4 +6,12 @@ before_install:
   - docker build -t greatness/dockerprojekt -f Dockerfile.dev .
 
 script: 
-  - docker run greatness/dockerprojekt npm run test -- --coverage
+  - docker run -e CI=true greatness/dockerprojekt npm run test -- --coverage
+
+  #To deploy to AWS
+#deploy:
+  #provider: elasticbeanstalk
+  #region: "us-west-2"
+  #app: "docker"
+  #env: "Docker-env"
+  #bucket_name: 
